@@ -2,7 +2,7 @@ package com.valllent.devtools.data
 
 enum class ProxyType(
     val description: String,
-    val proxyUrl: String,
+    val proxyPort: String,
 ) {
 
     NO_PROXY(
@@ -11,11 +11,11 @@ enum class ProxyType(
     ),
     MITMPROXY(
         "Mitmproxy",
-        "192.168.8.2:8080"
+        ":8080"
     ),
     CHARLES(
         "Charles",
-        "192.168.8.2:8888"
+        ":8888"
     );
 
 }

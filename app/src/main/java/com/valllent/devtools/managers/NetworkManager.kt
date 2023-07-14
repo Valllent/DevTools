@@ -9,6 +9,7 @@ import com.valllent.devtools.data.ProxyType
 class NetworkManager(
     private val contentResolver: ContentResolver,
     private val wifiManager: WifiManager,
+    private val storageManager: StorageManager,
 ) {
 
     companion object {
@@ -38,10 +39,15 @@ class NetworkManager(
     }
 
     fun activateProxy(proxyType: ProxyType): Boolean {
-        val proxyUrl = proxyType.proxyUrl
+        val fullUrl = if (proxyType == ProxyType.NO_PROXY) {
+            proxyType.proxyPort
+        } else {
+            storageManager.proxyIpAddress + proxyType.proxyPort
+        }
+
         try {
-            if (Settings.Global.putString(contentResolver, Settings.Global.HTTP_PROXY, proxyUrl)) {
-                Log.d(TAG, "New proxy url: $proxyUrl")
+            if (Settings.Global.putString(contentResolver, Settings.Global.HTTP_PROXY, fullUrl)) {
+                Log.d(TAG, "New proxy url: $fullUrl")
                 return true
 
             } else {

@@ -2,9 +2,11 @@ package com.valllent.devtools.di
 
 import android.content.ContentResolver
 import android.content.Context
+import android.content.SharedPreferences
 import android.net.wifi.WifiManager
+import android.preference.PreferenceManager
 import com.valllent.devtools.managers.NetworkManager
-import com.valllent.devtools.managers.PermissionRequester
+import com.valllent.devtools.managers.StorageManager
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -29,8 +31,19 @@ class AppModule {
     fun provideNetworkManager(
         contentResolver: ContentResolver,
         wifiManager: WifiManager,
+        storageManager: StorageManager,
     ): NetworkManager {
-        return NetworkManager(contentResolver, wifiManager)
+        return NetworkManager(contentResolver, wifiManager, storageManager)
+    }
+
+    @Provides
+    fun provideSharedPreferences(@ApplicationContext context: Context): SharedPreferences {
+        return PreferenceManager.getDefaultSharedPreferences(context)
+    }
+
+    @Provides
+    fun provideStorageManager(sharedPreferences: SharedPreferences): StorageManager {
+        return StorageManager(sharedPreferences)
     }
 
 }

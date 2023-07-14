@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">DevTools</string>
+
+    <string name="proxy_ip">Proxy IP</string>
 </resources>

@@ -45,6 +45,9 @@ sealed class Screen(
 
             val state = viewModel.state.collectAsState().value
             val actions = MainScreenActions(
+                onProxyIpChange = {
+                    viewModel.onProxyIpChange(it)
+                },
                 onProxySelect = {
                     viewModel.onSelectProxyType(it)
                 },
