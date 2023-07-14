@@ -1,0 +1,7 @@
+# Default
+.gradle
+local.properties
+build
+
+# Idea config
+/.idea
