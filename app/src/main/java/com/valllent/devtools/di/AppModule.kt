@@ -5,8 +5,8 @@ import android.content.Context
 import android.content.SharedPreferences
 import android.net.wifi.WifiManager
 import android.preference.PreferenceManager
-import com.valllent.devtools.managers.NetworkManager
 import com.valllent.devtools.managers.StorageManager
+import com.valllent.devtools.managers.SystemSettingsManager
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -32,8 +32,8 @@ class AppModule {
         contentResolver: ContentResolver,
         wifiManager: WifiManager,
         storageManager: StorageManager,
-    ): NetworkManager {
-        return NetworkManager(contentResolver, wifiManager, storageManager)
+    ): SystemSettingsManager {
+        return SystemSettingsManager(contentResolver, wifiManager, storageManager)
     }
 
     @Provides

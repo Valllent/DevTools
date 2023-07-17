@@ -2,4 +2,5 @@
     <string name="app_name">DevTools</string>
 
     <string name="proxy_ip">Proxy IP</string>
+    <string name="open_dev_settings">Open Dev Settings</string>
 </resources>

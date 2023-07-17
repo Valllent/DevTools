@@ -53,6 +53,9 @@ sealed class Screen(
                 },
                 onPermissionsGranted = {
                     viewModel.onPermissionGranted()
+                },
+                openDevSettings = {
+                    viewModel.openDevSettings(it)
                 }
             )
 

@@ -6,7 +6,7 @@ import android.provider.Settings
 import android.util.Log
 import com.valllent.devtools.data.ProxyType
 
-class NetworkManager(
+class SystemSettingsManager(
     private val contentResolver: ContentResolver,
     private val wifiManager: WifiManager,
     private val storageManager: StorageManager,
