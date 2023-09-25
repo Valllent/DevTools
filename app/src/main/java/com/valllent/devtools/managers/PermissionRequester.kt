@@ -22,7 +22,6 @@ class PermissionRequester(
         const val TAG = "PermissionRequester"
 
         val permissions = listOf(
-            Manifest.permission.WRITE_SETTINGS,
             Manifest.permission.WRITE_SECURE_SETTINGS,
         )
 

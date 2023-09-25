@@ -78,7 +78,7 @@ class SystemSettingsManager(
 
     private fun getCurrentProxy(): String? {
         try {
-            val currentProxy = Settings.Global.getString(contentResolver, Settings.Global.HTTP_PROXY)
+            val currentProxy = Settings.Global.getString(contentResolver, Settings.Global.HTTP_PROXY) ?: "None"
             Log.d(TAG, currentProxy)
             return currentProxy
         } catch (exception: SecurityException) {
